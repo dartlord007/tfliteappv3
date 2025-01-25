@@ -17,6 +17,7 @@ Future<void> _initCamera() async {
   _cameras = await availableCameras();
   _cameraController = CameraController(_cameras[0], ResolutionPreset.max);
   _cameraController.initialize().then((_) {
+    _isInitialized.value = true;
    
   }).catchError((Object e) {
     if (e is CameraException){

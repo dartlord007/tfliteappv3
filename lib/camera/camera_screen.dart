@@ -1,18 +1,16 @@
-import "package:camera/camera.dart";
 import "package:flutter/material.dart";
-import "package:get/get.dart";
-import "package:tfliteappv3/scan_controller.dart";
+import "package:tfliteappv3/camera/camera_viewer.dart";
 
-class CameraScreen extends GetView<ScanController> {
+class CameraScreen extends StatelessWidget {
   const CameraScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetX<ScanController>(builder: (controller){
-      if (!controller.isInitialized){return Container();}
-      return MaterialApp(
-        home: CameraPreview(controller.cameraController),
-      );
-    });
+    return const Stack(
+      alignment: Alignment.center,
+      children: [
+        CameraViewer(),
+      ],
+    );
   }
 }
